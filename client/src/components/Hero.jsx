@@ -16,7 +16,6 @@ import { useRef } from 'react';
             location: locationRef.current.value
         })
         setIsSearched(true)
-       
     }
 
    return (

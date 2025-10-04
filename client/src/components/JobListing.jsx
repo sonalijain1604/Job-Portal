@@ -4,8 +4,9 @@ import {
   assets,
   JobCategories,
   JobLocations,
+  jobsData,
 } from "../assets/assets";
-import JobCard from "./JobCard.jsx";
+import JobCard from "./JobCard";
 
 const JobListing = () => {
   const { isSearched, searchFilter, setSearchFilter, jobs} = useContext(AppContext);
@@ -145,7 +146,7 @@ const JobListing = () => {
         </h3>
         <p className="mb-8">Get your desired job at top companies</p>
         <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
-          {filteredJobs.slice((CurrentPage-1)*6,CurrentPage*6).map((job, index) => (
+          {jobsData.map((job,index)=> (
             <JobCard key={index} job={job} />
           ))}
         </div>

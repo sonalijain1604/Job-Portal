@@ -21,12 +21,9 @@ const Applyjob = () => {
   const fetchJob = async () => {
     try {
       const { data } = await axios.get(backendUrl + `/api/jobs/${id}`);
-      //const data = jobs.filter(job => job._id === id)
 
       if (data.success) {
         setJobData(data.job);
-        //setJobData(data[0])
-        //console.log(data[0])
       } else {
         toast.error(data.message);
       }
@@ -53,11 +50,8 @@ const Applyjob = () => {
   }
 
   useEffect(() => {
-    if(jobs.length > 0){
-      fetchJob()
-    }
-    
-  }, [id, jobs])
+    fetchJob();
+  }, [id]);
 
   return JobData ? (
     <>
